@@ -1,0 +1,12 @@
+web:
+  build: .
+  ports:
+   - "5000:5000"
+  volumes:
+   - /data
+  volumes_from:
+   - datastore
+datastore:
+  image: phusion/baseimage:0.9.15
+  volumes:
+  - /data

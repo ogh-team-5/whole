@@ -6,11 +6,7 @@ PATH_TO_AUDIO="$3"
 
 echo "$PATH_TO_VID"
 echo "$PIC_FOLDER"
-echo "$AUDIO_FOLDER"
-
-# if [ ! -d "$AUDIO_FOLDER" ]; then
-#   mkdir "$AUDIO_FOLDER"
-# fi
+echo "$PATH_TO_AUDIO"
 
 ffmpeg -i "$PATH_TO_VID" -ab 160k -ac 2 -ar 44100 -vn "$PATH_TO_AUDIO" -r 10 -y small.avi
 

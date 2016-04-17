@@ -5,6 +5,17 @@
 	</h1>
 </div>
 
-<button>Video recording</button><br>
-<textarea>Text recording</textarea>
+<form enctype="multipart/form-data">
+	<label>
+		Record a video:
+		<input type="file" name="video" accept="video/*" capture><br>
+	</label>
 
+<!--
+	<label>
+		<textarea>Text recording</textarea>
+	</label>
+-->
+	
+	<input type="submit" value="Upload">
+</form>

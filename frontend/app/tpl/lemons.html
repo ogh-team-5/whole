@@ -1,0 +1,26 @@
+<div class="page-header">
+	<h1>
+		<span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+		Show me your lemons !
+	</h1>
+</div>
+
+<ul class="list-group">
+	<% _.each(Object.keys(lemons.attributes), function(attribute) { %>
+	<li class="list-group-item">
+		<%- attribute %>:
+		<button data-attribute="<%- attribute %>" data-action="add" data="<%- attribute %>-add">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		</button>
+
+		<% for(var i = 0; i < lemons.get(attribute); i++) { %>
+			<span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+		<% } %>
+
+		<button data-attribute="<%- attribute %>" data-action="delete">
+			<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+		</button>
+	</li>
+	<% }); %>
+</ul>
+

@@ -9,18 +9,22 @@ var FOGEA_router = Backbone.Router.extend({
 //http://www.geekdave.com/2012/04/05/module-specific-subroutes-in-backbone/
 	routes: {
 		'' : 'index',
-		'submit' : 'submit',
-		'read/:id' : 'read',
+		':id/submit' : 'submit',
+		':id/read' : 'read',
+		':id/lemons' : 'lemons',
 	},
 	
 	index: function() {
 		this.showViewContent(new ViewIndex());
 	},
 	submit: function() {
-		this.showViewContent(new ViewSubmit());
+		this.showViewContent(new ViewSubmit({model: new Testimony()}));
 	},
 	read: function(id) {
 		this.showViewContent(new ViewRead({id: id}));
+	},
+	lemons: function(id) {
+		this.showViewContent(new ViewLemons({id: id}));
 	},
 
 	showViewContent: function(view) {

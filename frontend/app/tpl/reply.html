@@ -1,7 +1,9 @@
 <div class="page-header">
 	<h1>
 		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-		Submit a recording
+		<% var rslt = $.grep(user.get('questions'), function(e){ return e.id == question_id; }); %>
+		<%- rslt[0].question %>
+		
 	</h1>
 </div>
 

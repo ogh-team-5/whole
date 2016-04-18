@@ -16,8 +16,11 @@ window.ViewLemons = Backbone.View.extend({
 	},
 
 	button_click: function(e) {
-		console.log(e.currentTarget);
-		console.log($(e.currentTarget).attr('value'));
+		console.log('blah');
+		console.log(e);
+		console.log($(e));
+		console.log('foo');
+
 	}
 
 });

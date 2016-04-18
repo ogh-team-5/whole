@@ -1,0 +1,12 @@
+<h1>My (space) space</h1>
+
+<ul class="list-group">
+	<% _.each(user.get('questions'), function(question) { %>
+		<li class="list-group-item">
+			<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+			<a href="#user/<%- user.get('id') %>/reply/<%- question.id %>">
+				<%- question.question %>
+			</a>
+		</li>
+	<% }); %>
+</ul>

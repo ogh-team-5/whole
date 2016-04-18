@@ -1,4 +1,4 @@
-window.ViewSubmit = Backbone.View.extend({
+window.ViewReply = Backbone.View.extend({
 
 	events: {
 		'submit form' : 'uploadFile'
@@ -6,11 +6,11 @@ window.ViewSubmit = Backbone.View.extend({
 
 
 	initialize: function() {
-		this.template = _.template(tpl.get('submit'));
+		this.template = _.template(tpl.get('reply'));
 	},
 
 	render: function(e) {
-		$(this.el).html(this.template({}));
+		$(this.el).html(this.template({user: this.model, question_id: this.options.question_id}));
 		return this;
 	},
 
@@ -35,11 +35,9 @@ window.ViewSubmit = Backbone.View.extend({
 				file: filename
 			},
 			success: function () {
-				alert("Data Uploaded: ");
+				FOGEA_app.navigate('user/'+window.USER.get('id')+'/lemons', {trigger: true});
 			}
 		});
-
-
 	}
 
 

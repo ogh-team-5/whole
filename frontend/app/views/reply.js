@@ -15,6 +15,15 @@ window.ViewReply = Backbone.View.extend({
 	},
 
 	uploadFile: function(e) {
+		console.log('called');
+
+		function timeStamp() {
+			var now = new Date();
+
+			var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+			return date.join("_");
+		}
 		//pre treatment
 
 		//TODO
@@ -26,16 +35,21 @@ window.ViewReply = Backbone.View.extend({
 		}
 
 		var filename = $("#file").val();
+		console.log('fucktard');
 
 		$.ajax({
+			url: window.URL_ROOT + '/' + window.PATIENT.get('id') + '/' + timeStamp() + '/split',
 			type: "POST",
-			url: "TODO_URL",
 			enctype: 'multipart/form-data',
 			data: {
 				file: filename
 			},
 			success: function () {
-				FOGEA_app.navigate('user/'+window.PATIENT.get('id')+'/lemons', {trigger: true});
+				console.log('blah blah');
+				FOGEA_app.navigate('patient/'+window.PATIENT.get('id')+'/lemons', {trigger: true});
+			},
+			failure: function() {
+				console.log('foo bar');
 			}
 		});
 	}

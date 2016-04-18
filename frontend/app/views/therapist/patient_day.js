@@ -29,34 +29,10 @@ window.ViewTherapistPatientDay = Backbone.View.extend({
 				ds.push({axis: emotion, value: set[emotion]})
 			});
 		});
-		console.log(ds);
 
 		var margin = {top: 100, right: 100, bottom: 100, left: 100},
 			width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
 			height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-/*
-		var data = [
-			[//video
-			{axis:"Anger",value:0.8},
-			{axis:"Happiness",value:0.28},
-			{axis:"Fear",value:0.29},
-			{axis:"Sadness",value:0.17},
-			{axis:"Neutral",value:0.22},
-			],[//audio
-			{axis:"AAAAnger",value:0.27},
-			{axis:"Happiness",value:0.16},
-			{axis:"Fear",value:0.35},
-			{axis:"Sadness",value:0.63},
-			{axis:"Neutral",value:0.40},
-			],[//historical
-			{axis:"Anger",value:0.26},
-			{axis:"Happiness",value:0.10},
-			{axis:"Fear",value:0.60},
-			{axis:"Sadness",value:0.14},
-			{axis:"Neutral",value:0.22},
-			]
-		];
-		*/
 
 		var color = d3.scale.ordinal().range(["#EDC951","#CC333F","#00A0B0"]);
 

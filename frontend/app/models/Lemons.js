@@ -7,7 +7,9 @@ var Lemons = Backbone.Model.extend({
 	defaults: {
 		anger: 0,
 		happiness: 0,
-		bitterness: 6
+		fear: 0,
+		sadness: 0,
+		neutral: 0
 	}
 });
 

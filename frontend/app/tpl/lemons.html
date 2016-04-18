@@ -9,7 +9,7 @@
 	<% _.each(Object.keys(lemons.attributes), function(attribute) { %>
 	<li class="list-group-item">
 		<%- attribute %>:
-		<button data-attribute="<%- attribute %>" data-action="add" data="<%- attribute %>-add">
+		<button data-attribute="<%- attribute %>" data-action="add" id="<%- attribute %>-add">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 		</button>
 
@@ -24,3 +24,6 @@
 	<% }); %>
 </ul>
 
+<button data-action="put">
+Submit
+</button>

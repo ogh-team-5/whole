@@ -16,10 +16,31 @@ window.ViewLemons = Backbone.View.extend({
 	},
 
 	button_click: function(e) {
-		console.log('blah');
-		console.log(e);
-		console.log($(e));
-		console.log('foo');
+		var action = $(e.target).attr('data-action');
+		if(action === 'put')
+			return;
+		var attribute = $(e.target).attr('data-attribute');
+
+		var total = 0;
+		_.each(this.lemons.attributes, function(attr) { total += attr;});
+		console.log(total);
+
+
+		if(action === 'add') {
+			if(total < 10) {
+				this.lemons.attributes[attribute]++;
+			}
+		}
+		else {
+			if(this.lemons.attributes[attribute] > 0) {
+				this.lemons.attributes[attribute]--;
+			}
+		}
+		this.render();
+	},
+	submit: function(e) {
+		this.lemons.save();
+
 
 	}
 

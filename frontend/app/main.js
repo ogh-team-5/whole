@@ -8,7 +8,7 @@ Backbone.View.prototype.close = function () {
 };
 
 
-window.PATIENT = new Patient();
+window.PATIENT = new Patient({id: 'luke'});
 
 FOGEA_app = new FOGEA_router();
 Backbone.history.start();

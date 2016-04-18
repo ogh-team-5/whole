@@ -88,7 +88,14 @@ var svg = d3.select('body').append('svg')
 //svg.append('g').classed('single', 1).datum(randomDataset()).call(chart);
 svg.append('g').classed('single', 1).datum(data).call(chart);
 
-
+var text = svg.append("text")
+	.attr("class", "title")
+	.attr('transform', 'translate(90,0)') 
+	.attr("x", 250) //hard coded
+	.attr("y", 25)
+	.attr("font-size", "22px")
+	.attr("fill", "#404040")
+	.text("Emotional budget breakdown");
 
 
 // many radars

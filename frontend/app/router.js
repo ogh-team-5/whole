@@ -9,26 +9,45 @@ var FOGEA_router = Backbone.Router.extend({
 //http://www.geekdave.com/2012/04/05/module-specific-subroutes-in-backbone/
 	routes: {
 		'' : 'index',
-		'user/:id' : 'user',
-		'user/:id/read' : 'read',
-		'user/:id/lemons' : 'lemons',
-		'user/:uid/reply/:question_id' : 'reply',
+		'patient/:pid' : 'patient',
+		'patient/:pid/read' : 'read', ///OSHUSONHUSONTUHOSUNTh
+		'patient/:pid/lemons' : 'lemons',
+		'patient/:pid/reply/:question_id' : 'reply',
+
+		'therapist/:tid/patients': 'therapist_patients',
+		'therapist/:tid/patient/:pid': 'therapist_patient',
+		'therapist/:tid/patient/:pid/day/:day': 'therapist_patient_day'
 	},
 	
 	index: function() {
 		this.showViewContent(new ViewIndex());
 	},
-	user: function(user) {
-		this.showViewContent(new ViewUser({model: window.USER}));
+	patient: function(pid) {
+		this.showViewContent(new ViewPatient({model: window.PATIENT}));
 	},
-	reply: function(user, question_id) {
-		this.showViewContent(new ViewReply({model: window.USER, question_id: question_id}));
+	reply: function(pid, question_id) {
+		this.showViewContent(new ViewReply({model: window.PATIENT, question_id: question_id}));
 	},
-	read: function(id) {
-		this.showViewContent(new ViewRead({id: id}));
+	read: function(pid) {
+		this.showViewContent(new ViewRead({id: pid}));
 	},
-	lemons: function(id) {
-		this.showViewContent(new ViewLemons({id: id}));
+	lemons: function(pid) {
+		this.showViewContent(new ViewLemons({id: pid}));
+	},
+
+
+	therapist_patients: function(id) {
+		this.showViewContent(new ViewTherapistPatients());
+	},
+
+	therapist_patient: function(tid, pid) {
+		this.showViewContent(new ViewTherapistPatient());
+	},
+
+	therapist_patient_day: function(tid, pid, day) {
+		console.log('blah');
+		var pday = new PatientDay({patient: pid, day: day});
+		this.showViewContent(new ViewTherapistPatientDay({model: pday}));
 	},
 
 	showViewContent: function(view) {

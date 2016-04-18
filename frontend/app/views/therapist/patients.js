@@ -1,7 +1,7 @@
-window.ViewUser = Backbone.View.extend({
+window.ViewTherapistPatients= Backbone.View.extend({
 
 	initialize: function() {
-		this.template = _.template(tpl.get('user'));
+		this.template = _.template(tpl.get('therapist/patients'));
 	},
 
 	render: function(e) {

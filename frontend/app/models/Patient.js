@@ -1,9 +1,9 @@
 /*
- * User.js
+ * Patient.js
  * Copyright Frank Villaro-Dixon, BSD Simplified, 2014
  */
 
-var User = Backbone.Model.extend({
+var Patient = Backbone.Model.extend({
 	urlRoot: "user",
 	defaults: {
 		id: '1337_user',

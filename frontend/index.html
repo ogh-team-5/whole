@@ -39,8 +39,10 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#user/TODO">Home</a></li>
-						<li><a href="#user/TODO/lemons">Report lemons</a></li>
+						<li><a href="#patient/TODO">Home</a></li>
+						<li><a href="#patient/TODO/lemons">Report lemons</a></li>
+						<li>|</li>
+						<li><a href="#therapist/TODO/patients">See my patients</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -85,13 +87,18 @@
 
 		<!-- Modèles -->
 		<script src="app/models/Lemons.js"></script>
-		<script src="app/models/User.js"></script>
+		<script src="app/models/Patient.js"></script>
+		<script src="app/models/PatientDay.js"></script>
 
 		<!-- Vues -->
 		<script src="app/views/index.js"></script>
 		<script src="app/views/reply.js"></script>
-		<script src="app/views/user.js"></script>
+		<script src="app/views/patient.js"></script>
 		<script src="app/views/lemons.js"></script>
+
+		<script src="app/views/therapist/patients.js"></script>
+		<script src="app/views/therapist/patient.js"></script>
+		<script src="app/views/therapist/patient_day.js"></script>
 
 		<!-- et l'application -->
 		<script src="app/router.js"></script>

@@ -35,7 +35,7 @@ window.ViewReply = Backbone.View.extend({
 				file: filename
 			},
 			success: function () {
-				FOGEA_app.navigate('user/'+window.USER.get('id')+'/lemons', {trigger: true});
+				FOGEA_app.navigate('user/'+window.PATIENT.get('id')+'/lemons', {trigger: true});
 			}
 		});
 	}

@@ -136,19 +136,19 @@ function RadarChart(id, data, options) {
 	var radarLine = d3.svg.line.radial()
 		.interpolate("linear-closed")
 		.radius(function(d) { return rScale(d.value); })
-		.angle(function(d,i) {	return i*angleSlice; });
-		
+		.angle(function(d,i) { return i*angleSlice; });
+
 	if(cfg.roundStrokes) {
 		radarLine.interpolate("cardinal-closed");
 	}
-				
-	//Create a wrapper for the blobs	
+
+	//Create a wrapper for the blobs
 	var blobWrapper = g.selectAll(".radarWrapper")
 		.data(data)
 		.enter().append("g")
 		.attr("class", "radarWrapper");
-			
-	//Append the backgrounds	
+
+	//Append the backgrounds
 	blobWrapper
 		.append("path")
 		.attr("class", "radarArea")
@@ -163,7 +163,7 @@ function RadarChart(id, data, options) {
 			//Bring back the hovered over blob
 			d3.select(this)
 				.transition().duration(200)
-				.style("fill-opacity", 0.7);	
+				.style("fill-opacity", 0.7);
 		})
 .on('mouseout', function(){
 			//Bring back all blobs
@@ -172,15 +172,15 @@ function RadarChart(id, data, options) {
 				.style("fill-opacity", cfg.opacityArea);
 		});
 		
-	//Create the outlines	
+	//Create the outlines
 	blobWrapper.append("path")
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("stroke-width", cfg.strokeWidth + "px")
 		.style("stroke", function(d,i) { return cfg.color(i); })
 		.style("fill", "none")
-		.style("filter" , "url(#glow)");		
-	
+		.style("filter" , "url(#glow)");
+
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
 		.data(function(d,i) { return d; })
@@ -201,7 +201,7 @@ function RadarChart(id, data, options) {
 		.data(data)
 		.enter().append("g")
 		.attr("class", "radarCircleWrapper");
-		
+
 	//Append a set of invisible circles on top for the mouseover pop-up
 	blobCircleWrapper.selectAll(".radarInvisibleCircle")
 		.data(function(d,i) { return d; })
@@ -215,7 +215,7 @@ function RadarChart(id, data, options) {
 		.on("mouseover", function(d,i) {
 			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
-					
+
 			tooltip
 				.attr('x', newX)
 				.attr('y', newY)
@@ -238,7 +238,7 @@ function RadarChart(id, data, options) {
 	/////////////////////////////////////////////////////////
 
 	//Taken from http://bl.ocks.org/mbostock/7555321
-	//Wraps SVG text	
+	//Wraps SVG text
 	function wrap(text, width) {
 	  text.each(function() {
 		var text = d3.select(this),
@@ -251,7 +251,7 @@ function RadarChart(id, data, options) {
 			x = text.attr("x"),
 			dy = parseFloat(text.attr("dy")),
 			tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
-			
+
 		while (word = words.pop()) {
 		  line.push(word);
 		  tspan.text(line.join(" "));
@@ -263,6 +263,6 @@ function RadarChart(id, data, options) {
 		  }
 		}
 	  });
-	}//wrap	
+	}//wrap
 	
 }//RadarChart

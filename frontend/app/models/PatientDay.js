@@ -8,6 +8,13 @@ var PatientDay = Backbone.Model.extend({
 		return window.URL_ROOT + '/' + this.get('patient') + '/' + this.get('day');
 	},
 	defaults: {
+		text: {
+			emotions: {}
+		},
+		video: {
+			emotions: {}
+		},
+		lemons: {}
 	}
 });
 

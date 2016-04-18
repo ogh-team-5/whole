@@ -9,6 +9,7 @@ body {
 	/* Margin bottom by footer height */
 	margin-bottom: 60px;
 	color: #333;
+/*	background-image: url('/static/img/background.jpg'); */
 }
 
 .footer {

@@ -16,3 +16,9 @@ var Patient = Backbone.Model.extend({
 	}
 });
 
+var AllPatients = Backbone.Collection.extend({
+	model: Patient,
+	url: function() {
+		return window.URL_ROOT;
+	}
+});

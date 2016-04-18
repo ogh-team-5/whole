@@ -1,1 +1,8 @@
 <h2>My patients</h2>
+
+<ul class="list-group">
+<% _.each(patients.models, function(patient) { %>
+	<li class="list-group-item">
+		<a href="#therapist/TODO/patient/<%- patient.get('id') %>"><%- patient.get('id') %></a>
+	</li>
+<% }); %>

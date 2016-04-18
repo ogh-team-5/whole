@@ -11,3 +11,13 @@ var PatientDay = Backbone.Model.extend({
 	}
 });
 
+var AllDays = Backbone.Collection.extend({
+	model: PatientDay,
+	initialize: function(models, options) {
+		this.id = options.id;
+	},
+	url: function() {
+		console.log(this);
+		return window.URL_ROOT + '/' + this.id;
+	}
+});

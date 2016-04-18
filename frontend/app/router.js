@@ -37,11 +37,13 @@ var FOGEA_router = Backbone.Router.extend({
 
 
 	therapist_patients: function(id) {
-		this.showViewContent(new ViewTherapistPatients());
+		var allPats = new AllPatients();
+		this.showViewContent(new ViewTherapistPatients({model: allPats}));
 	},
 
 	therapist_patient: function(tid, pid) {
-		this.showViewContent(new ViewTherapistPatient());
+		var allDays = new AllDays([], {id: pid});
+		this.showViewContent(new ViewTherapistPatient({patient: pid, model: allDays}));
 	},
 
 	therapist_patient_day: function(tid, pid, day) {
